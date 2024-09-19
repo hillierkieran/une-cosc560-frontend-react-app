@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/index.css';
 import PostList from './pages/PostList';
 import PostDetail from './pages/PostDetail';
+import { PostProvider } from './contexts/PostContext';
 import reportWebVitals from './utils/reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -12,12 +13,14 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<PostList />} />
-        <Route path="/posts/:id" element={<PostDetail />} />
-      </Routes>
-    </BrowserRouter>
+    <PostProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PostList />} />
+          <Route path="/post/:id" element={<PostDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </PostProvider>
   </React.StrictMode>
 );
 

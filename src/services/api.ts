@@ -33,5 +33,5 @@ export const fetchPosts = async () => {
 
 // Fetch a single blog post by its ID
 export const fetchPostById = async (id: string) => {
-  return await apiRequest(`/posts/${id}`);
+  return await apiRequest(`/post/${id}`);
 };
