@@ -1,0 +1,71 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+/* Common link styles */
+a {
+  color: #4f58df;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Button styling shared across all buttons */
+button {
+  font-family: inherit;
+  background-color: #4f58df;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #3e46c2;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Add responsiveness for smaller devices */
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .post-detail-main,
+  .post-list-main {
+    padding: 1rem;
+  }
+
+  .post-detail-container,
+  .post-card {
+    font-size: 1.2rem;
+  }
+}

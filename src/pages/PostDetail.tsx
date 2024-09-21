@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { usePostContext } from '../contexts/PostContext';
 import { useFetchData } from '../hooks/useFetchData';
 import { fetchPostById } from '../services/api';
+import Header from '../components/Header';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
 import { Post } from '../types/Post';
+import styles from '../styles/PostDetail.module.css';
 
 const PostDetail = () => {
   // Access the posts from cache using the PostContext
@@ -45,21 +49,34 @@ const PostDetail = () => {
   };
 
   // Display loading message while data is being fetched
-  if (loading && !posts) return <p>Loading...</p>;
+  if (loading && !posts) return <Loading />;
 
   // Display error message if an error occurred
-  if (error) return <p>{error}</p>;
+  if (error) return <Error message={error} />;
 
   // Render the post details
-  return post ? (
-    <div>
-      <button onClick={handleBackClick}>Back</button>
-      <h1>{post.title}</h1>
-      <p>{post.author}</p>
-      <p>{post.content}</p>
-    </div>
-  ) : (
-    <p>Post details are not available.</p>
+  return (
+    <>
+      <Header />
+      <main className={styles.main}>
+        <div className={styles.container}>
+          {post ? (
+            <>
+              <button className={styles.backButton} onClick={handleBackClick}>
+                Back
+              </button>
+              <h1 className={styles.title}>{post.title}</h1>
+              <div className={styles.author}>
+                <strong>Author:</strong> {post.author}
+              </div>
+              <div className={styles.content}>{post.content}</div>
+            </>
+          ) : (
+            <p>Post details are not available.</p>
+          )}
+        </div>
+      </main>
+    </>
   );
 };
 

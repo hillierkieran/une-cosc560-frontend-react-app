@@ -1,11 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './styles/index.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import reportWebVitals from './utils/reportWebVitals';
+import { PostProvider } from './contexts/PostContext';
+import ErrorPage from './pages/ErrorPage';
 import PostList from './pages/PostList';
 import PostDetail from './pages/PostDetail';
-import { PostProvider } from './contexts/PostContext';
-import reportWebVitals from './utils/reportWebVitals';
+import './styles/global.css';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <PostList />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/post/:id',
+    element: <PostDetail />,
+    errorElement: <ErrorPage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,12 +28,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <PostProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<PostList />} />
-          <Route path="/post/:id" element={<PostDetail />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </PostProvider>
   </React.StrictMode>
 );

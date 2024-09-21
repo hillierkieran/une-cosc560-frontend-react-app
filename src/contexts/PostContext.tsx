@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, ReactNode } from 'react';
-import { PostContextType } from '../types/PostContextType'; // Import the type
-import { Post } from '../types/Post'; // Existing import
+import { PostContextType } from '../types/PostContextType';
+import { Post } from '../types/Post';
 
 // Create a Context for Posts, with a default value of `undefined`.
 const PostContext = createContext<PostContextType | undefined>(undefined);

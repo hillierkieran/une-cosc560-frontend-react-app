@@ -3,7 +3,11 @@ import { usePostContext } from '../contexts/PostContext';
 import { useFetchData } from '../hooks/useFetchData';
 import { fetchPosts } from '../services/api';
 import PostCard from '../components/PostCard';
+import Header from '../components/Header';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
 import { Post } from '../types/Post';
+import styles from '../styles/PostList.module.css';
 
 const PostList = () => {
   // Access the posts from cache using the PostContext
@@ -28,21 +32,24 @@ const PostList = () => {
   }, [fetchedPosts, posts, setPosts]);
 
   // Display loading message while data is being fetched
-  if (loading && !posts) return <p>Loading...</p>;
+  if (loading && !posts) return <Loading />;
 
   // Display error message if an error occurred
-  if (error) return <p>{error}</p>;
+  if (error) return <Error message={error} />;
 
   // Render the list of posts
   return (
-    <div>
-      <h1>Post List</h1>
-      <ul>
-        {(posts || fetchedPosts)?.map((post: Post) => (
-          <PostCard key={post.id} post={post} />
-        )) || <p>No posts available.</p>}
-      </ul>
-    </div>
+    <>
+      <Header />
+      <main className={styles.main}>
+        <h1 className={styles.heading}>Post List</h1>
+        <div className={styles.container}>
+          {posts?.map((post: Post) => (
+            <PostCard key={post.id} post={post} />
+          )) || <p>No posts available.</p>}
+        </div>
+      </main>
+    </>
   );
 };
 
