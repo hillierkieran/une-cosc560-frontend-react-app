@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+UNE - COSC60 Advanced Web Programming - Assignment 3
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Frontend React App
 
-## Available Scripts
+This project is a React frontend application that connects to a Laravel backend. It allows users to view blog posts, including a list of posts and individual post details, all fetched from an API. The project uses React Router for client-side navigation, modular CSS for styling, and custom hooks for data fetching and state management.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### GitHub Repository Location
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**React**: [github.com/hillierkieran/une-cosc560-frontend-react-app](https://github.com/hillierkieran/une-cosc560-frontend-react-app)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Laravel**: [github.com/hillierkieran/une-cosc560-backend-laravel/tree/feature/sanctum-api-integration](https://github.com/hillierkieran/une-cosc560-backend-laravel/tree/feature/sanctum-api-integration)
 
-### `npm test`
+### Setup Instructions
+For setup instructions, go to the [SETUP.md](./SETUP.md) file.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Report
 
-### `npm run build`
+### Student Information
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Student ID:** 220281036
+- **Name:** Kieran Hillier
+- **Email:** khillie2@myune.edu.au
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### My Approach
+My approach to developing this project involved breaking down the tasks into manageable steps and focusing on one aspect at a time:
+ 1. I started by setting up the project structure with basic file organisation.
+ 2. Then, I built the core site functionality: creating pages, routing, and initial state management.
+ 3. I focused on connecting the React frontend to the Laravel backend API, handling data fetching, and managing state.
+ 4. Once the API connection was stable, I worked on improving how data was handled, adding error and loading states for a more seamless user experience.
+ 5. I then focused on styling, using modular CSS to ensure a consistent and responsive UI.
+ 6. Finally, I added finishing touches, such as moving the base URL for the api connection to an environment varible.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Challenges Faced
+During development, I encountered several challenges:
+- **Connecting to the Laravel backend API**: Figuring out how to handle the API responses, specifically that I needed to use the `data` section of the response, took some trial and error. I eventually realised how to extract the necessary data.
+- **Code Modularity**: I aimed to make the code as modular and reusable as possible, especially for tasks like API requests and context management. This turned out to be trickier than expected, particularly when handling dependencies and state updates. It required significant refactoring to achieve the desired level of reusability.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Extra Features
+In addition to meeting the assessment requirements, I...
+- Added custom components (`Error`, `Loading`) to handle various states of the application, improving the user experience, and;
+- Implemented a caching mechanism using React Context to reduce unnecessary API calls and improve performance.
