@@ -1,5 +1,5 @@
-// Base URL for the Laravel backend API
-const API_BASE_URL = 'http://cosc560.test/api';
+// Get base URL from environment variables
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000/api';
 
 // Generic function to make API requests
 const apiRequest = async (endpoint: string) => {
